@@ -121,7 +121,7 @@ export default async function EditApplicationPage({
 
           <div className="flex gap-3 pt-2">
             <div className="flex gap-3 pt-2">
-              <SubmitButton pendingText="Saving...">Save Changes</SubmitButton>
+              <SubmitButton pendingText="Saving..." className='p-0.5'>Save Changes</SubmitButton>
             </div>
           </div>
         </form>
