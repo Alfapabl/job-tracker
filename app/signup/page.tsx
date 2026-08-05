@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { signUp } from '@/app/auth/actions';
+import SubmitButton from '@/app/components/submit-button';
 
 export default function SignupPage() {
   return (
@@ -35,12 +36,7 @@ export default function SignupPage() {
             />
           </div>
 
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition font-medium"
-          >
-            Create account
-          </button>
+          <SubmitButton pendingText="Creating account...">Create account</SubmitButton>
         </form>
 
         <p className="text-sm text-center mt-4 text-gray-700">

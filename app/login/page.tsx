@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { signIn } from '@/app/auth/actions';
+import SubmitButton from '@/app/components/submit-button';
 
 export default function LoginPage() {
   return (
@@ -34,13 +35,7 @@ export default function LoginPage() {
               className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition font-medium"
-          >
-            Log in
-          </button>
+          <SubmitButton pendingText="Logging in...">Log in</SubmitButton>
         </form>
 
         <p className="text-sm text-center mt-4 text-gray-700">

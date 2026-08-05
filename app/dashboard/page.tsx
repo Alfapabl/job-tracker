@@ -68,16 +68,31 @@ export default async function DashboardPage() {
               </thead>
               <tbody>
                 {applications.map((app) => (
-                  <tr key={app.id} className="border-b border-gray-100 hover:bg-gray-50">
-                    <td className="px-4 py-3 text-gray-900 font-medium">{app.company}</td>
-                    <td className="px-4 py-3 text-gray-800">{app.role}</td>
+                  <tr
+                    key={app.id}
+                    className="border-b border-gray-100 hover:bg-blue-50 cursor-pointer"
+                  >
+                    <td className="px-4 py-3 text-gray-900 font-medium">
+                      <Link href={`/dashboard/applications/${app.id}`} className="block">
+                        {app.company}
+                      </Link>
+                    </td>
+                    <td className="px-4 py-3 text-gray-800">
+                      <Link href={`/dashboard/applications/${app.id}`} className="block">
+                        {app.role}
+                      </Link>
+                    </td>
                     <td className="px-4 py-3">
-                      <span className="text-sm px-2 py-1 bg-blue-100 text-blue-800 rounded font-medium capitalize">
-                        {app.status.replace('_', ' ')}
-                      </span>
+                      <Link href={`/dashboard/applications/${app.id}`} className="block">
+                        <span className="text-sm px-2 py-1 bg-blue-100 text-blue-800 rounded font-medium capitalize">
+                          {app.status.replace('_', ' ')}
+                        </span>
+                      </Link>
                     </td>
                     <td className="px-4 py-3 text-sm text-gray-700">
-                      {new Date(app.created_at).toLocaleDateString()}
+                      <Link href={`/dashboard/applications/${app.id}`} className="block">
+                        {new Date(app.created_at).toLocaleDateString()}
+                      </Link>
                     </td>
                   </tr>
                 ))}
