@@ -9,14 +9,14 @@ export async function signUp(formData: FormData) {
   const password = formData.get('password') as string;
 
   if (!email || !password) {
-    return { error: 'Email and password are required.' };
+    throw new Error('Email and password are required.');
   }
 
   const supabase = await createClient();
   const { error } = await supabase.auth.signUp({ email, password });
 
   if (error) {
-    return { error: error.message };
+    throw new Error(error.message);
   }
 
   revalidatePath('/', 'layout');
@@ -28,14 +28,14 @@ export async function signIn(formData: FormData) {
   const password = formData.get('password') as string;
 
   if (!email || !password) {
-    return { error: 'Email and password are required.' };
+    throw new Error('Email and password are required.');
   }
 
   const supabase = await createClient();
   const { error } = await supabase.auth.signInWithPassword({ email, password });
 
   if (error) {
-    return { error: error.message };
+    throw new Error(error.message);
   }
 
   revalidatePath('/', 'layout');
